@@ -1,214 +1,217 @@
-# Kabsat La Union - Resort Reservation System
+# Kabsat La Union - Surf Resort Reservation System
 
-A full-stack resort reservation system for Kabsat La Union, a surf resort in La Union, Philippines. Built with the MERN stack (MongoDB, Express, React, Node.js).
+<div align="center">
+  
+  **A surf resort reservation system for Kabsat La Union, Philippines**
+  
+  🌐 [kabsatlaunion.com](https://kabsatlaunion.com) | ✉️ Kabsatreservation@gmail.com
+</div>
 
-## Features
+---
 
-### Guest Features
+## Overview
 
-- Browse available rooms and accommodations
-- View room details with images, amenities, and pricing
-- Real-time availability checking with date picker
-- Online booking with guest information form
-- Email confirmation with booking receipt
-- PDF receipt generation and download
+A full-stack MERN reservation system featuring a premium surf resort booking experience with admin dashboard, PDF receipt generation, email confirmations, and live chat support.
 
-### Admin Features
+## Live Demo
 
-- Secure admin authentication (JWT-based)
-- Dashboard with booking statistics
-- Manage rooms (add, edit, delete)
-- View and manage bookings
-- Update booking status (pending, confirmed, cancelled)
+- **Website**: [kabsatlaunion.com](https://kabsatlaunion.com)
+- **Frontend**: Hosted on Vercel
+- **Backend API**: Hosted on Render
 
 ## Tech Stack
 
 ### Frontend
 
-- **React 19** with Vite
-- **React Router** for navigation
-- **Zustand** for state management
-- **Tailwind CSS** for styling
-- **Radix UI** for accessible components
-- **Lucide React** for icons
-- **date-fns** for date handling
-- **jsPDF** & **html2canvas** for PDF generation
+- **React 19** + **Vite** - Modern build tooling
+- **Tailwind CSS** - Custom coastal theme
+- **Zustand** - Lightweight state management
+- **React Router v7** - Client-side routing
+- **Radix UI** - Accessible UI primitives
+- **jsPDF + html2canvas** - PDF receipt generation
+- **Lucide React** - Icons
+- **Sonner** - Toast notifications
+- **date-fns** - Date handling
 
 ### Backend
 
-- **Node.js** with Express
-- **MongoDB** with Mongoose ODM
-- **JWT** for authentication
-- **Nodemailer** for email notifications
-- **bcryptjs** for password hashing
-- **Helmet** for security headers
-- **CORS** for cross-origin requests
+- **Node.js + Express** - REST API server
+- **MongoDB + Mongoose** - Database & ODM
+- **JWT** - Admin authentication
+- **Nodemailer** - Email service with PDF attachments
+- **bcryptjs** - Password hashing
+- **Helmet** - Security headers
+
+## Features
+
+### 🏄 Guest Features
+
+- Browse surf resort rooms and bungalows with stunning imagery
+- Real-time availability checking
+- Interactive date picker with calendar
+- Flexible guest count management
+- Secure online booking
+- Downloadable PDF receipts
+- Email confirmation with receipt attachment
+- Live chat support
+
+### 👑 Admin Features
+
+- Secure JWT-based authentication
+- Dashboard with booking analytics
+- Complete room management (CRUD)
+- Seasonal discount configuration
+- Booking management & status updates
+- Payment confirmation workflow
 
 ## Project Structure
 
 ```
+Kabsat-La-Union/
 ├── backend/
-│   ├── config/          # Database & constants
-│   ├── controllers/     # Route handlers
-│   ├── middleware/      # Auth, validation, error handling
-│   ├── models/          # Mongoose schemas
-│   ├── routes/          # API routes
-│   ├── utils/           # Email service, seed scripts
-│   └── server.js        # Express app entry point
+│   ├── config/           # Database & constants
+│   ├── controllers/      # Route handlers
+│   ├── middleware/       # Auth & validation
+│   ├── models/           # Mongoose schemas
+│   ├── routes/           # API endpoints
+│   ├── utils/            # Email service, seeders
+│   └── server.js
 │
 ├── frontend/
-│   ├── public/          # Static assets
+│   ├── public/           # Static assets, SEO files
 │   └── src/
-│       ├── components/  # Reusable UI components
-│       ├── layouts/     # Page layouts (Header, Footer)
-│       ├── lib/         # Utilities (PDF generator)
-│       ├── pages/       # Page components
-│       ├── services/    # API service layer
-│       └── store/       # Zustand stores
+│       ├── components/   # UI components & Receipt
+│       ├── layouts/      # Header, Footer, AdminLayout
+│       ├── lib/          # PDF generator, utilities
+│       ├── pages/        # Route pages
+│       ├── services/     # API service layer
+│       └── store/        # Zustand stores
+│
+└── README.md
 ```
 
-## Getting Started
+## Quick Start
 
 ### Prerequisites
 
-- Node.js 18+
+- Node.js v18+
 - MongoDB (local or Atlas)
-- Gmail account (for email notifications)
+- npm or yarn
 
-### Installation
-
-1. **Clone the repository**
-
-   ```bash
-   git clone https://github.com/RabbitDaCoder/Kabsat-La-Union.git
-   cd Kabsat-La-Union
-   ```
-
-2. **Backend Setup**
-
-   ```bash
-   cd backend
-   npm install
-   cp .env.example .env
-   ```
-
-   Edit `.env` with your configuration:
-
-   ```env
-   PORT=5000
-   NODE_ENV=development
-   MONGODB_URI=mongodb://localhost:27017/kabsat_launion
-   JWT_SECRET=your_secure_secret_key
-   EMAIL_HOST=smtp.gmail.com
-   EMAIL_PORT=587
-   EMAIL_USER=your_email@gmail.com
-   EMAIL_PASS=your_app_password
-   EMAIL_FROM="Kabsat La Union <noreply@kabsatlaunion.com>"
-   FRONTEND_URL=http://localhost:5173
-   ```
-
-3. **Frontend Setup**
-
-   ```bash
-   cd frontend
-   npm install
-   cp .env.example .env
-   ```
-
-   Edit `.env`:
-
-   ```env
-   VITE_API_URL=http://localhost:5000/api
-   ```
-
-4. **Seed the Database**
-   ```bash
-   cd backend
-   npm run seed:admin   # Create admin user
-   npm run seed:rooms   # Add sample rooms
-   ```
-
-### Running the Application
-
-**Development mode:**
+### 1. Clone & Install
 
 ```bash
-# Terminal 1 - Backend
-cd backend
-npm run dev
+git clone https://github.com/RabbitDaCoder/Kabsat-La-Union.git
+cd Kabsat-La-Union
 
-# Terminal 2 - Frontend
-cd frontend
-npm run dev
+# Backend
+cd backend && npm install
+
+# Frontend
+cd ../frontend && npm install
 ```
 
-- Frontend: http://localhost:5173
-- Backend API: http://localhost:5000/api
-- Admin Login: http://localhost:5173/admin/login
+### 2. Configure Environment
 
-## API Endpoints
+**Backend** (`backend/.env`):
 
-### Public
+```env
+PORT=5000
+NODE_ENV=development
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_secure_jwt_secret
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USER=your_email@gmail.com
+EMAIL_PASS=your_gmail_app_password
+EMAIL_FROM="Kabsat Reservation <reservation@kabsatlaunion.com>"
+FRONTEND_URL=http://localhost:5173
+```
+
+**Frontend** (`frontend/.env`):
+
+```env
+VITE_API_URL=http://localhost:5000/api
+```
+
+### 3. Seed Database
+
+```bash
+cd backend
+npm run seed:admin   # Creates admin user
+npm run seed:rooms   # Seeds room data
+```
+
+### 4. Run Development Servers
+
+```bash
+# Terminal 1 - Backend (port 5000)
+cd backend && npm run dev
+
+# Terminal 2 - Frontend (port 5173)
+cd frontend && npm run dev
+```
+
+## Deployment
+
+| Service  | Platform | Root Directory |
+| -------- | -------- | -------------- |
+| Frontend | Vercel   | `frontend`     |
+| Backend  | Render   | `backend`      |
+
+## API Reference
+
+### Public Endpoints
 
 | Method | Endpoint                      | Description             |
 | ------ | ----------------------------- | ----------------------- |
-| GET    | `/api/rooms`                  | Get all rooms           |
-| GET    | `/api/rooms/:id`              | Get room by ID          |
+| GET    | `/api/rooms`                  | List available rooms    |
+| GET    | `/api/rooms/:id`              | Get room details        |
 | GET    | `/api/rooms/:id/availability` | Check room availability |
-| POST   | `/api/bookings`               | Create new booking      |
+| POST   | `/api/bookings`               | Create booking          |
 | GET    | `/api/bookings/:id`           | Get booking by ID       |
 | GET    | `/api/health`                 | Health check            |
 
-### Admin (Protected)
+### Admin Endpoints (Protected)
 
 | Method | Endpoint                  | Description     |
 | ------ | ------------------------- | --------------- |
 | POST   | `/api/auth/login`         | Admin login     |
 | GET    | `/api/admin/dashboard`    | Dashboard stats |
-| GET    | `/api/admin/bookings`     | All bookings    |
-| PATCH  | `/api/admin/bookings/:id` | Update booking  |
+| GET    | `/api/admin/rooms`        | List all rooms  |
 | POST   | `/api/admin/rooms`        | Create room     |
 | PUT    | `/api/admin/rooms/:id`    | Update room     |
 | DELETE | `/api/admin/rooms/:id`    | Delete room     |
+| GET    | `/api/admin/bookings`     | List bookings   |
+| PATCH  | `/api/admin/bookings/:id` | Update booking  |
 
-## Deployment
+## Booking Flow
 
-### Backend (Render)
+1. **Browse Rooms** → Guest explores available accommodations
+2. **Select Dates** → Calendar picker with availability check
+3. **Enter Details** → Guest information form
+4. **Create Booking** → System generates booking confirmation
+5. **Receive Receipt** → PDF generated & emailed
 
-The backend is configured for Render deployment via `render.yaml`. Set environment variables in the Render dashboard.
+## SEO & Performance
 
-### Frontend (Vercel)
+- Optimized meta tags & Open Graph
+- Sitemap & robots.txt
+- PWA manifest
+- Responsive images
 
-The frontend is configured for Vercel deployment via `vercel.json`. Set `VITE_API_URL` to your production backend URL.
+## Contact
 
-## Environment Variables
-
-### Backend
-
-| Variable       | Description                          |
-| -------------- | ------------------------------------ |
-| `PORT`         | Server port (default: 5000)          |
-| `NODE_ENV`     | Environment (development/production) |
-| `MONGODB_URI`  | MongoDB connection string            |
-| `JWT_SECRET`   | Secret key for JWT tokens            |
-| `EMAIL_HOST`   | SMTP host                            |
-| `EMAIL_PORT`   | SMTP port                            |
-| `EMAIL_USER`   | SMTP username                        |
-| `EMAIL_PASS`   | SMTP password/app password           |
-| `EMAIL_FROM`   | Sender email address                 |
-| `FRONTEND_URL` | Frontend URL for CORS                |
-
-### Frontend
-
-| Variable           | Description            |
-| ------------------ | ---------------------- |
-| `VITE_API_URL`     | Backend API URL        |
-| `VITE_WEBSITE_URL` | Production website URL |
+- **Website**: [kabsatlaunion.com](https://kabsatlaunion.com)
+- **Email**: Kabsatreservation@gmail.com
+- **Location**: La Union, Philippines
 
 ## License
 
 ISC
 
-## Author
+---
 
-Developed for Kabsat La Union Surf Resort
+<div align="center">
+  Built with ❤️ by RabbitDaCoder
+</div>
